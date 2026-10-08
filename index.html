@@ -88,23 +88,6 @@ footer{text-align:center;padding:30px;opacity:.5;font-size:.85rem}
 </section>
 
 <section>
-  <h2>Vorglüh-Regeln</h2>
-  <ol>
-    <li>Kein Glas bleibt leer.</li>
-    <li>Jeder, der reinkommt, kriegt ein Prost.</li>
-    <li>Wer zuletzt kommt, holt die nächste Runde.</li>
-    <li>Zwischendurch ein Glas Wasser.</li>
-    <li>Heim zu Fuß oder mit Taxi. Nicht mit dem Auto.</li>
-  </ol>
-</section>
-
-<section class="prost">
-  <h2>Prost-Zähler</h2>
-  <button id="pb">🍻 PROST!</button>
-  <p id="pc">0 × angestoßen</p>
-</section>
-
-<section>
   <h2>Hier wird vorgeglüht</h2>
   <p class="addr">Staiger Vorglüh-Zentrum · Marktstraße 59 · Ravensburg<br><small style="opacity:.7;font-weight:400">Geöffnet: Di + Do, 19–22 Uhr</small></p>
   <iframe loading="lazy" title="Karte" src="https://www.google.com/maps?q=47.7800815,9.6163141&z=17&output=embed"></iframe>
@@ -123,9 +106,6 @@ function tick(){
   $('status').textContent='🍺 Bis zum Vorglühen!';
 }
 tick();setInterval(tick,1000);
-let c=0;try{c=+localStorage.getItem('prost')||0}catch(e){}
-const show=()=>$('pc').textContent=c+' × angestoßen';show();
-$('pb').onclick=()=>{c++;show();try{localStorage.setItem('prost',c)}catch(e){}};
 </script>
 </body>
 </html>
