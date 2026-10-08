@@ -16,7 +16,7 @@ h1{margin-top:28px;font-size:clamp(2.2rem,9vw,6rem);line-height:1;font-weight:90
 .sub{margin-top:16px;font-size:clamp(1.1rem,3.4vw,1.7rem);font-weight:700;color:var(--hot)}
 
 /* Bierkrug: Glas exakt mittig, Henkel ragt rechts raus */
-.beer{position:relative;width:140px;height:200px;margin:24px auto 0;animation:tilt 3s ease-in-out infinite}
+.beer{position:relative;z-index:5;width:140px;height:200px;margin:24px auto 0;animation:tilt 3s ease-in-out infinite}
 @keyframes tilt{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
 .mug{position:absolute;inset:30px 0 0 0;border:6px solid #ffe9b0;border-top:0;border-radius:0 0 22px 22px;background:linear-gradient(var(--gold),#e07a0c);overflow:hidden;box-shadow:0 0 60px #ffb34799}
 .mug::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff6 0 12%,transparent 30%)}
