@@ -5,52 +5,71 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Staiger-Vorglühzentrum</title>
 <style>
-:root{--fire:#ff5a1f;--hot:#ffb347;--glow:#ff2d00;--bg:#0b0604}
-*{box-sizing:border-box;margin:0}
+:root{--fire:#ff5a1f;--hot:#ffb347;--gold:#ffc83d;--bg:#0b0604;--card:#1c0d07}
+*{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:#fff;font-family:system-ui,Segoe UI,Arial,sans-serif;overflow-x:hidden}
-.banner{position:sticky;top:0;z-index:10;text-align:center;padding:18px 12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:clamp(1.3rem,5vw,3.2rem);background:linear-gradient(90deg,#ff2d00,#ff8a00,#ffd000,#ff8a00,#ff2d00);background-size:300% 100%;animation:slide 6s linear infinite;color:#1a0500;box-shadow:0 6px 40px #ff5a1f99}
+.banner{position:sticky;top:0;z-index:10;text-align:center;padding:18px 12px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;font-size:clamp(1.3rem,5vw,3.2rem);background:linear-gradient(90deg,#ff2d00,#ff8a00,#ffd000,#ff8a00,#ff2d00);background-size:300% 100%;animation:slide 6s linear infinite;color:#1a0500;box-shadow:0 6px 40px #ff5a1f99}
 @keyframes slide{to{background-position:300% 0}}
-.hero{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 16px;background:radial-gradient(circle at 50% 100%,#ff5a1f55,transparent 60%),var(--bg)}
-h1{font-size:clamp(2.2rem,9vw,6rem);line-height:1;font-weight:900;background:linear-gradient(#fff,var(--hot) 50%,var(--glow));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 24px #ff5a1f)}
-.sub{margin-top:16px;font-size:clamp(1rem,3vw,1.5rem);color:var(--hot)}
-.plug{width:70px;height:150px;margin:30px auto 10px;border-radius:35px 35px 12px 12px;background:linear-gradient(#777,#333);position:relative}
-.plug::before{content:"";position:absolute;left:50%;bottom:-40px;width:22px;height:70px;transform:translateX(-50%);border-radius:0 0 11px 11px;background:linear-gradient(#ff9a3c,var(--glow));animation:glow 1.2s ease-in-out infinite alternate}
-@keyframes glow{from{box-shadow:0 0 20px #ff5a1f;filter:brightness(.8)}to{box-shadow:0 0 70px 20px #ff2d00;filter:brightness(1.3)}}
-.count{display:flex;gap:14px;margin-top:50px;justify-content:center}
-.count div{background:#1c0d07;border:1px solid #ff5a1f66;border-radius:12px;padding:12px 18px;min-width:84px}
+
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 16px;background:radial-gradient(circle at 50% 90%,#ff5a1f44,transparent 60%),var(--bg)}
+h1{margin-top:28px;font-size:clamp(2.2rem,9vw,6rem);line-height:1;font-weight:900;background:linear-gradient(#fff,var(--hot) 50%,#ff2d00);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 24px #ff5a1f)}
+.sub{margin-top:16px;font-size:clamp(1.1rem,3.4vw,1.7rem);font-weight:700;color:var(--hot)}
+
+/* Bierkrug: Glas exakt mittig, Henkel ragt rechts raus */
+.beer{position:relative;width:140px;height:200px;margin:0 auto;animation:tilt 3s ease-in-out infinite}
+@keyframes tilt{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.mug{position:absolute;inset:30px 0 0 0;border:6px solid #ffe9b0;border-top:0;border-radius:0 0 22px 22px;background:linear-gradient(var(--gold),#e07a0c);overflow:hidden;box-shadow:0 0 60px #ffb34799}
+.mug::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff6 0 12%,transparent 30%)}
+.foam{position:absolute;top:0;left:-10px;right:-10px;height:52px;z-index:2;background:radial-gradient(circle at 15% 60%,#fffbe8 22px,transparent 23px),radial-gradient(circle at 42% 40%,#fffbe8 28px,transparent 29px),radial-gradient(circle at 70% 55%,#fffbe8 26px,transparent 27px),radial-gradient(circle at 90% 65%,#fffbe8 18px,transparent 19px)}
+.foam::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:24px;background:#fffbe8}
+.handle{position:absolute;top:70px;right:-46px;width:52px;height:96px;border:12px solid #ffe9b0;border-left:0;border-radius:0 44px 44px 0}
+.bub{position:absolute;bottom:4px;width:7px;height:7px;border-radius:50%;background:#fffa;animation:up 2.6s linear infinite}
+@keyframes up{to{transform:translateY(-150px);opacity:0}}
+
+.count{display:flex;gap:12px;margin-top:40px;justify-content:center;flex-wrap:wrap}
+.count div{background:var(--card);border:1px solid #ff5a1f66;border-radius:12px;padding:12px 18px;min-width:84px}
 .count b{display:block;font-size:2.2rem;color:var(--hot)}
 .count span{font-size:.8rem;opacity:.7}
-#status{margin-top:18px;font-weight:700}
+#status{margin-top:16px;font-weight:700;font-size:1.1rem}
+
 section{max-width:960px;margin:auto;padding:56px 16px}
-h2{font-size:2rem;margin-bottom:24px;color:var(--hot)}
+h2{font-size:2rem;margin-bottom:24px;color:var(--hot);text-align:center}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:#1c0d07;border:1px solid #ff5a1f44;border-radius:14px;padding:20px}
-.card h3{color:var(--fire);margin-bottom:8px}
-.temp{height:14px;border-radius:7px;background:linear-gradient(90deg,#3a86ff,#ffd000,#ff2d00);margin-top:10px;position:relative}
-.temp i{position:absolute;top:-4px;left:92%;width:4px;height:22px;background:#fff;animation:t 3s ease-in-out infinite alternate}
-@keyframes t{from{left:15%}to{left:92%}}
-iframe{width:100%;height:380px;border:0;border-radius:14px;filter:invert(.9) hue-rotate(180deg)}
+.card{background:var(--card);border:1px solid #ff5a1f44;border-radius:14px;padding:22px}
+.card .t{font-size:1.6rem;font-weight:900;color:var(--fire)}
+.card h3{margin:6px 0 8px}
+.card p{opacity:.85;line-height:1.5}
+ol{max-width:620px;margin:auto;counter-reset:r;list-style:none}
+ol li{counter-increment:r;background:var(--card);border-left:5px solid var(--fire);border-radius:10px;padding:16px 18px 16px 62px;margin-bottom:12px;position:relative;font-size:1.1rem}
+ol li::before{content:counter(r);position:absolute;left:18px;top:50%;transform:translateY(-50%);font-weight:900;font-size:1.6rem;color:var(--gold)}
+
+.prost{text-align:center}
+.prost button{font-size:1.6rem;font-weight:900;padding:18px 40px;border:0;border-radius:40px;background:var(--gold);color:#1a0500;cursor:pointer;box-shadow:0 0 40px #ffc83d88;transition:transform .1s}
+.prost button:active{transform:scale(.94)}
+#pc{margin-top:14px;font-size:1.2rem;color:var(--hot)}
+
+iframe{width:100%;height:380px;border:0;border-radius:14px}
+.addr{text-align:center;margin-bottom:16px;font-size:1.2rem;font-weight:700}
 .btn{display:inline-block;margin-top:16px;padding:14px 26px;border-radius:30px;background:var(--fire);color:#fff;font-weight:800;text-decoration:none}
+.center{text-align:center}
 footer{text-align:center;padding:30px;opacity:.5;font-size:.85rem}
-.beer{position:relative;width:150px;height:200px;margin:0 auto 24px}
-.mug{position:absolute;bottom:0;left:0;width:120px;height:170px;border:5px solid #ffe9b0;border-radius:6px 6px 18px 18px;background:linear-gradient(#ffc83d,#e8860c);overflow:hidden;box-shadow:0 0 50px #ffb34799}
-.mug::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff5,transparent 30%)}
-.foam{position:absolute;top:-6px;left:-6px;width:130px;height:46px;background:#fffbe8;border-radius:30px 30px 10px 10px;box-shadow:-10px 8px 0 -4px #fffbe8,14px 10px 0 -2px #fffbe8;z-index:2;animation:foam 2s ease-in-out infinite alternate}
-@keyframes foam{to{transform:translateY(-6px)}}
-.handle{position:absolute;right:0;top:40px;width:42px;height:90px;border:10px solid #ffe9b0;border-left:0;border-radius:0 40px 40px 0}
-.bub{position:absolute;bottom:0;width:6px;height:6px;border-radius:50%;background:#fff9;animation:up 3s linear infinite}
-@keyframes up{to{transform:translateY(-150px);opacity:0}}
-.victor{text-align:center}
-.victor img{max-width:min(360px,90%);border-radius:18px;border:4px solid var(--fire);box-shadow:0 0 50px #ff5a1f99}
 </style>
 </head>
 <body>
-<div class="banner">🔥 HEUTE PARTY – START 19:00 UHR 🔥</div>
+<div class="banner">🍺 HEUTE PARTY – START 19:00 UHR 🍺</div>
+
 <header class="hero">
-  <div class="beer"><div class="mug"><i class="bub" style="left:20%;animation-delay:0s"></i><i class="bub" style="left:50%;animation-delay:1s"></i><i class="bub" style="left:75%;animation-delay:2s"></i></div><div class="foam"></div><div class="handle"></div></div>
+  <div class="beer">
+    <div class="foam"></div>
+    <div class="mug">
+      <i class="bub" style="left:18%"></i>
+      <i class="bub" style="left:45%;animation-delay:.9s"></i>
+      <i class="bub" style="left:72%;animation-delay:1.7s"></i>
+    </div>
+    <div class="handle"></div>
+  </div>
   <h1>STAIGER-<br>VORGLÜHZENTRUM</h1>
-  <p class="sub">Fettes Bier. Kalt. Jetzt vorglühen. Party ab 19:00 Uhr.</p>
-  <div class="plug"></div>
+  <p class="sub">Erst vorglühen. Dann Party.</p>
   <div class="count">
     <div><b id="h">--</b><span>Std</span></div>
     <div><b id="m">--</b><span>Min</span></div>
@@ -58,30 +77,55 @@ footer{text-align:center;padding:30px;opacity:.5;font-size:.85rem}
   </div>
   <p id="status"></p>
 </header>
+
 <section>
-  <h2>Programm</h2>
+  <h2>Der Plan</h2>
   <div class="grid">
-    <div class="card"><h3>Vorglühen</h3><p>Bier auf. Stimmung hoch. Ohne Vorglühen kein Start.</p><div class="temp"><i></i></div></div>
-    <div class="card"><h3>19:00 Uhr</h3><p>Party startet. Zündung an.</p></div>
-    <div class="card"><h3>Betriebstemperatur</h3><p>Musik, Getränke, gute Laune. Bis der Motor läuft.</p></div>
+    <div class="card"><div class="t">Ab jetzt</div><h3>Vorglühen</h3><p>Wir treffen uns im Staiger. Bier auf, anstoßen, warm trinken.</p></div>
+    <div class="card"><div class="t">19:00</div><h3>Party-Start</h3><p>Ab 19 Uhr geht die Party richtig los.</p></div>
+    <div class="card"><div class="t">Open End</div><h3>Durchziehen</h3><p>Schluss ist, wenn das letzte Fass leer ist.</p></div>
   </div>
 </section>
+
 <section>
-  <h2>Standort</h2>
-  <iframe loading="lazy" title="Karte" src="https://www.google.com/maps?q=Steiger-Vorgl%C3%BChzentrum&output=embed"></iframe>
-  <a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/opesUJNx4rXJb8oT9">In Google Maps öffnen</a>
+  <h2>Vorglüh-Regeln</h2>
+  <ol>
+    <li>Kein Glas bleibt leer.</li>
+    <li>Jeder, der reinkommt, kriegt ein Prost.</li>
+    <li>Wer zuletzt kommt, holt die nächste Runde.</li>
+    <li>Zwischendurch ein Glas Wasser.</li>
+    <li>Heim zu Fuß oder mit Taxi. Nicht mit dem Auto.</li>
+  </ol>
 </section>
-<footer>© Staiger-Vorglühzentrum · Trink Wasser zwischendurch.</footer>
+
+<section class="prost">
+  <h2>Prost-Zähler</h2>
+  <button id="pb">🍻 PROST!</button>
+  <p id="pc">0 × angestoßen</p>
+</section>
+
+<section>
+  <h2>Hier wird vorgeglüht</h2>
+  <p class="addr">Staiger-Vorglühzentrum · Marktstraße 59</p>
+  <iframe loading="lazy" title="Karte" src="https://www.google.com/maps?q=Staiger-Vorgl%C3%BChzentrum%2C+Marktstra%C3%9Fe+59&output=embed"></iframe>
+  <div class="center"><a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/opesUJNx4rXJb8oT9">In Google Maps öffnen</a></div>
+</section>
+
+<footer>© Staiger-Vorglühzentrum · Trink verantwortungsvoll.</footer>
+
 <script>
 const p=n=>String(n).padStart(2,'0'),$=i=>document.getElementById(i);
 function tick(){
   const now=new Date(),t=new Date();t.setHours(19,0,0,0);
   const d=t-now;
-  if(d<=0){$('h').textContent=$('m').textContent=$('s').textContent='00';$('status').textContent='🔥 Die Party läuft! Komm vorbei.';return}
+  if(d<=0){$('h').textContent=$('m').textContent=$('s').textContent='00';$('status').textContent='🎉 Die Party läuft! Komm vorbei.';return}
   $('h').textContent=p(Math.floor(d/36e5));$('m').textContent=p(Math.floor(d/6e4)%60);$('s').textContent=p(Math.floor(d/1e3)%60);
-  $('status').textContent='Noch vorglühen …';
+  $('status').textContent='🍺 Noch Zeit zum Vorglühen!';
 }
 tick();setInterval(tick,1000);
+let c=0;try{c=+localStorage.getItem('prost')||0}catch(e){}
+const show=()=>$('pc').textContent=c+' × angestoßen';show();
+$('pb').onclick=()=>{c++;show();try{localStorage.setItem('prost',c)}catch(e){}};
 </script>
 </body>
 </html>
