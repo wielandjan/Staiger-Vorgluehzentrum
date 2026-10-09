@@ -26,11 +26,6 @@ h1{margin-top:28px;font-size:clamp(2.2rem,9vw,6rem);line-height:1;font-weight:90
 .bub{position:absolute;bottom:4px;width:7px;height:7px;border-radius:50%;background:#fffa;animation:up 2.6s linear infinite}
 @keyframes up{to{transform:translateY(-150px);opacity:0}}
 
-.count{display:flex;gap:12px;margin-top:40px;justify-content:center;flex-wrap:wrap}
-.count div{background:var(--card);border:1px solid #ff5a1f66;border-radius:12px;padding:12px 18px;min-width:84px}
-.count b{display:block;font-size:2.2rem;color:var(--hot)}
-.count span{font-size:.8rem;opacity:.7}
-#status{margin-top:16px;font-weight:700;font-size:1.1rem}
 
 section{max-width:960px;margin:auto;padding:56px 16px}
 h2{font-size:2rem;margin-bottom:24px;color:var(--hot);text-align:center}
@@ -56,7 +51,7 @@ footer{text-align:center;padding:30px;opacity:.5;font-size:.85rem}
 </style>
 </head>
 <body>
-<div class="banner">🍺 HEUTE VORGLÜHEN – START 19:00 UHR 🍺</div>
+<div class="banner">🍺 HIER WIRD VORGEGLÜHT 🍺</div>
 
 <header class="hero">
   <div class="beer">
@@ -69,13 +64,7 @@ footer{text-align:center;padding:30px;opacity:.5;font-size:.85rem}
     <div class="handle"></div>
   </div>
   <h1>STAIGER-<br>VORGLÜHZENTRUM</h1>
-  <p class="sub">Ab 19 Uhr wird vorgeglüht. Danach Party.</p>
-  <div class="count">
-    <div><b id="h">--</b><span>Std</span></div>
-    <div><b id="m">--</b><span>Min</span></div>
-    <div><b id="s">--</b><span>Sek</span></div>
-  </div>
-  <p id="status"></p>
+  <p class="sub">Erst vorglühen. Dann Party.</p>
 </header>
 
 <section>
@@ -87,16 +76,5 @@ footer{text-align:center;padding:30px;opacity:.5;font-size:.85rem}
 
 <footer>© Staiger-Vorglühzentrum · Trink unverantwortungsvoll.</footer>
 
-<script>
-const p=n=>String(n).padStart(2,'0'),$=i=>document.getElementById(i);
-function tick(){
-  const now=new Date(),t=new Date();t.setHours(19,0,0,0);
-  const d=t-now;
-  if(d<=0){$('h').textContent=$('m').textContent=$('s').textContent='00';$('status').textContent='🍻 Vorglühen läuft! Komm vorbei.';return}
-  $('h').textContent=p(Math.floor(d/36e5));$('m').textContent=p(Math.floor(d/6e4)%60);$('s').textContent=p(Math.floor(d/1e3)%60);
-  $('status').textContent='🍺 Bis zum Vorglühen!';
-}
-tick();setInterval(tick,1000);
-</script>
 </body>
 </html>
